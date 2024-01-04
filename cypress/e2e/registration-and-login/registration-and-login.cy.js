@@ -1,4 +1,9 @@
 /// <reference types="cypress" />
+import { generate } from 'gerador-validador-cpf'
+
+const cpf = generate();
+
+const  phone = Math.floor(Math.random() * 73451829765);
 
 describe('Registration and Login', () => {
     
@@ -7,7 +12,7 @@ describe('Registration and Login', () => {
     })
     
     it('Registration', () => {
-        cy.RegisterPhisicPerson("Mariano QA da Silva Senior", "14382781767", "usercomum@mailinator.com", "{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}21940028922", "senhaForte123@");
+        cy.RegisterPhisicPerson("Mariano QA da Silva Senior", cpf, cpf+"@mailinator.com", "{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}219"+phone, "senhaForte123@");
     });
 
     /* it('Login', () => {
