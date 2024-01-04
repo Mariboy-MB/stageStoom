@@ -9,13 +9,13 @@ describe('Registration and Login', () => {
     
     beforeEach(()=>{
         cy.visit('/');
-    })
+    });
     
     it('Registration', () => {
         cy.RegisterPhisicPerson("Mariano QA da Silva Senior", cpf, cpf+"@mailinator.com", "{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}219"+phone, "senhaForte123@");
     });
 
-    /* it('Login', () => {
-        
-    }); */
+    it('Login', () => {
+        cy.login("66163283414@mailinator.com", "senhaForte123@");
+    });
 });
