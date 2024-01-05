@@ -8,7 +8,9 @@ const quantityLessOne = () => cy.get('.box-quantity > :nth-child(1)');
 const nameField = () => cy.get('#nome');
 const cpfField = () => cy.get('#cpf');
 const emailField = () => cy.get('#email');
-
+const cepModal = () => cy.get('#shipping-cep');
+const cepBar = () => cy.get('#cep');
+const enviarCepButon = () => cy.contains('Enviar');
 
 Cypress.Commands.add('addProductToCart', () => {
     addCartSecondItem().click();
@@ -28,4 +30,10 @@ Cypress.Commands.add('goToTendaCardOffers', () => {
 
 Cypress.Commands.add('goToSelectProductsOffers', () => {
     selectLogo().click();
+});
+
+Cypress.Commands.add('fillClickAndTakeCepBar', () => {
+    cepBar().type('13030710');
+    enviarCepButon().click();
+    cy.chooseDayToClickAndTake();
 });

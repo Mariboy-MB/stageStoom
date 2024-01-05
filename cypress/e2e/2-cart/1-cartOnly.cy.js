@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Add and remove products", () => {
+describe("Add and remove product", () => {
     beforeEach(()=>{
         cy.visit('/');
     });
@@ -13,7 +13,7 @@ describe("Add and remove products", () => {
         cy.removeProductToCart();
     });
 
-    it("Other seller products", () => {
+    it("Other seller product", () => {
         cy.login("66163283414@mailinator.com", "senhaForte123@");
         cy.wait(5000);
         cy.goToSelectProductsOffers();

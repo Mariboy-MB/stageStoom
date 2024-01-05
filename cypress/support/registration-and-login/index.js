@@ -51,6 +51,7 @@ Cypress.Commands.add('RegisterPhisicPerson', (name, cpf, emailAddress, phone, pa
     birthYear().type('1994');
     slangAdress().type('casa');
     cep().type('13030-710');
+    cy.wait(3000)
     numberAdress().type('1107');
     finishAccountRegistration().click();
 });
