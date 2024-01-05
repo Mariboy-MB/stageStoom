@@ -18,6 +18,6 @@
 import './cart'
 import './purchase'
 import './registration-and-login'
-
+import 'cypress-mailosaur'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

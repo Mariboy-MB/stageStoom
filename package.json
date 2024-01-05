@@ -2,5 +2,8 @@
   "dependencies": {
     "cypress": "^13.6.2",
     "gerador-validador-cpf": "^5.0.2"
+  },
+  "devDependencies": {
+    "cypress-mailosaur": "^2.14.0"
   }
 }
