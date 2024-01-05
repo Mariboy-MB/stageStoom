@@ -16,6 +16,7 @@ const passwordtwo = () => cy.get('#password2');
 const createAccountregistrationScreen = () => cy.get('.btn-create-account');
 
 Cypress.Commands.add('RegisterPhisicPerson', (name, cpf, email, phone, password) => {
+    acceptCookies().click();
     loginIcon().click();
     createAccountHomeScreen().click();
     personTypeAccount().click();
