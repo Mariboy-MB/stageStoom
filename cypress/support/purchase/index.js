@@ -6,7 +6,7 @@ const clickAndTake = () => cy.get('.tag');
 const finishPurchaseButton = () => cy.get('.resume-buttons > .btn');
 const firstAdress = () => cy.get('.list-branches > :nth-child(1)');
 const dateToRight = () => cy.get('.direction-right > .fas');
-const firstTimeTake = () => cy.get('.content-periods > :nth-child(1)');
+const firstTime = () => cy.get('.content-periods > :nth-child(1)');
 const boletoPaymentOption = () => cy.contains('Boleto bancário');
 const payBoleto = () => cy.get('.btn-buy');
 const seeBoleto = () => cy.get('.justify-content-start > .btn-primary');
@@ -22,10 +22,10 @@ const cardCpf = () => cy.get('#cpf');
 const parcelNumbers = () => cy.get('#installments > .react-select__control');
 const oneParcelNumber = () => cy.get('#react-select-5-option-0');
 const payWithCard = () => cy.get('.CreditCardComponent > [data-cy="btn-"]');
+const deliveryChoose = () => cy.get('.delivery-price');
+const myAdressInCart = () => cy.get('.subtitle-address-option');
 
-Cypress.Commands.add('buyProduct', () => {
-    cartScreenContinueButton().click();
-    chooseDeliveryTypeButton().click();
+Cypress.Commands.add('chooseDayToClickAndTake', () => {
     clickAndTake().click();
     firstAdress().click();
     dateToRight().click();
@@ -34,9 +34,30 @@ Cypress.Commands.add('buyProduct', () => {
     dateToRight().click();
     dateToRight().click();
     dateToRight().click();
-    firstTimeTake().click();
+    firstTime().click();
+});
+
+Cypress.Commands.add('jumpingBugAdress', () => {
+    cartScreenContinueButton().click();
+    chooseDeliveryTypeButton().click();
+    deliveryChoose().click();
+    myAdressInCart().click();
+    dateToRight().click();
+    dateToRight().click();
+    dateToRight().click();
+    dateToRight().click();
+    dateToRight().click();
+    dateToRight().click();
+    firstTime().click();
+    cartScreenContinueButton().click();
+});
+
+Cypress.Commands.add('buyProduct', () => {
+    cartScreenContinueButton().click();
+    chooseDeliveryTypeButton().click();
+    cy.chooseDayToClickAndTake();
     finishPurchaseButton().click();
-})
+});
 
 Cypress.Commands.add('generateBoleto', () => {
     boletoPaymentOption().click();
